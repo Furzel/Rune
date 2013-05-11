@@ -1,10 +1,10 @@
 package test;
 
 import model.RuneCell;
+import model.RuneGenerator;
 import model.RuneCell.Color;
 import model.RuneCell.Shape;
-import controller.RuneGenerator;
-import controller.RuneGenerator.Difficulty;
+import model.RuneGenerator.Difficulty;
 
 public class TestRuneGenerator extends Test {
 

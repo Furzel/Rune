@@ -1,8 +1,7 @@
-package controller;
+package model;
 
 import java.util.Random;
 
-import model.RuneCell;
 
 public class RuneGenerator {
 	
