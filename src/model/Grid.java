@@ -37,7 +37,6 @@ public class Grid {
 		if ( x < GRID_X_MAX && x >= 0 && y < GRID_Y_MAX && y >= 0) {
 			return _cellGrid[x][y];
 		} else {
-			System.out.println("/!\\ getCell returned NULL");
 			return null;
 		}
 	}

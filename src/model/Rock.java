@@ -17,4 +17,14 @@ public class Rock implements Item {
 		return false;
 	}
 
+	@Override
+	public boolean canBePlacedOnCell(Cell c) {
+		return true;
+	}
+
+	@Override
+	public void putOnCell(Cell c) {
+		c.data.item = this;
+	}
+
 }

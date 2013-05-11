@@ -52,5 +52,15 @@ public class Rune implements Item{
 	public boolean isRune() {
 		return true;
 	}
+
+	@Override
+	public boolean canBePlacedOnCell(Cell c) {
+		return true;
+	}
+
+	@Override
+	public void putOnCell(Cell c) {
+		c.data.item = this;
+	}
 	
 }
