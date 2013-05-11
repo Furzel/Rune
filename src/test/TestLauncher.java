@@ -9,8 +9,8 @@ public class TestLauncher {
 		// ADD TEST HERE
 		testList.add(new TestCell());
 		testList.add(new TestGrid());
-		testList.add(new TestRuneCell());
-		testList.add(new TestRuneGenerator());
+		testList.add(new TestRune());
+		testList.add(new TestItemGenerator());
 		// RUN THE TEST
 		int i = 0;
 		for (Test t : testList) {
