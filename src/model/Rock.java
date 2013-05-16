@@ -19,11 +19,17 @@ public class Rock implements Item {
 
 	@Override
 	public boolean canBePlacedOnCell(Cell c) {
-		return true;
+		assert(c != null);
+		if(c.data.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public void putOnCell(Cell c) {
+		assert(c != null);
 		c.data.item = this;
 	}
 

@@ -33,6 +33,23 @@ public class Grid {
 		return cellList;
 	}
 	
+	public ArrayList<Cell> getCrossCellNeighbors(Cell c) {
+		ArrayList<Cell> cellList = new ArrayList<Cell>();
+		Cell topCell = getCell(c.x, c.y - 1);
+		Cell leftCell = getCell(c.x - 1, c.y);
+		Cell bottomCell = getCell(c.x, c.y + 1);
+		Cell rightCell = getCell(c.x + 1, c.y);
+		if (topCell != null)
+			cellList.add(topCell);
+		if (leftCell != null) 
+			cellList.add(leftCell);
+		if (bottomCell != null) 
+			cellList.add(bottomCell);
+		if (rightCell != null) 
+			cellList.add(rightCell);
+		return cellList;
+	}
+	
 	public Cell getCell(int x, int y) {
 		if ( x < GRID_X_MAX && x >= 0 && y < GRID_Y_MAX && y >= 0) {
 			return _cellGrid[x][y];

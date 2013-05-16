@@ -12,6 +12,8 @@ public class TestLauncher {
 		testList.add(new TestRune());
 		testList.add(new TestItemGenerator());
 		testList.add(new TestGame());
+		testList.add(new TestRock());
+		testList.add(new TestBomb());
 		// RUN THE TEST
 		int i = 0;
 		for (Test t : testList) {

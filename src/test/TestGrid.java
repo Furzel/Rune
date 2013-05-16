@@ -13,6 +13,8 @@ public class TestGrid extends Test {
 		getNeighborsTest();
 		getCellTest();
 		getCellInLineTest();
+		getHorizontalAndVerticalLineTest();
+		getCrosNeighborsTest();
 	}
 	
 	public void creationTest() {
@@ -103,6 +105,29 @@ public class TestGrid extends Test {
 			assert(resultList2.size() == Grid.GRID_X_MAX);
 			for (int j = 0 ; j < Grid.GRID_X_MAX; j++) {
 				assert(resultList2.contains(g._cellGrid[j][i]));
+			}
+		}
+	}
+	
+	public void getCrosNeighborsTest() {
+		Grid g = new Grid();
+		Cell left = g.getCell(0, 1);
+		Cell top = g.getCell(1, 0);
+		Cell bottom = g.getCell(1, 2);
+		Cell right = g.getCell(1, 2);
+		Cell center = g.getCell(1,1);
+		
+		ArrayList<Cell> cross = g.getCrossCellNeighbors(center);
+		assert(cross.size() == 4);
+		assert(cross.contains(bottom));
+		assert(cross.contains(top));
+		assert(cross.contains(right));
+		assert(cross.contains(left));
+		
+		for (int i = 0; i < Grid.GRID_X_MAX; i++) {
+			for (int j = 0; j < Grid.GRID_Y_MAX; j++) {
+				ArrayList<Cell> neighbors = g.getCrossCellNeighbors(g._cellGrid[i][j]);
+				assert(neighbors.size() >= 2 && neighbors.size() <= 4);
 			}
 		}
 	}
