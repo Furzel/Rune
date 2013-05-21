@@ -1,6 +1,7 @@
 package controller;
 
 import model.Cell;
+import model.DiscardPool;
 import model.Grid;
 import model.Item;
 import model.Rock;
@@ -9,7 +10,7 @@ public class Game {
 	
 	public Grid gameGrid;
 	private Item _currentItem;
-	
+	private DiscardPool _discardPool;
 	
 	public Game() {
 		gameGrid = new Grid();
@@ -29,6 +30,10 @@ public class Game {
 	
 	public Item getCurrentItem() {
 		return _currentItem;
+	}
+	
+	public void discardCurrentItem() {
+		
 	}
 	
 }
