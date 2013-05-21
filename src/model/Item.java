@@ -6,6 +6,6 @@ public interface Item {
 	public boolean isBomb();
 	public boolean isRune();
 	
-	public boolean canBePlacedOnCell(Cell c);
+	public boolean canBePlacedOnCell(Cell c, Grid g);
 	public void putOnCell(Cell c);
 }

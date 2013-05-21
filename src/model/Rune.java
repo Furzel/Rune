@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Rune implements Item{
 
 	public static enum Color {
@@ -54,13 +56,45 @@ public class Rune implements Item{
 	}
 
 	@Override
-	public boolean canBePlacedOnCell(Cell c) {
-		return true;
+	public boolean canBePlacedOnCell(Cell c, Grid g) {
+		if (!c.data.isEmpty()) {
+			return false;
+		}
+		ArrayList<Cell> neighbors = g.getCrossCellNeighbors(c);
+		// We need to check for empty neighbors because even if an 
+		// empty one is a suitable neighbor, we can't place the rune
+		// if all of them are empty
+		int maxEmptyNeighbors = neighbors.size() - 1;
+		boolean canBePlaced = true;
+		for (Cell neighbor : neighbors) {
+			if (!isSuitableNeighboor(neighbor)) {
+				canBePlaced = false;
+				break;
+			} else if (neighbor.data.isEmpty()) {
+				maxEmptyNeighbors--;
+			}
+		}
+		return canBePlaced && maxEmptyNeighbors >= 0;
 	}
 
 	@Override
 	public void putOnCell(Cell c) {
+		assert(c.data.isEmpty());
 		c.data.item = this;
+	}
+	
+	private boolean isSuitableNeighboor(Cell c) {
+		if (c.data.isEmpty()) {
+			return true;
+		} else if (c.data.item.isRock()) {
+			return true;
+		} else if (c.data.item.isRune()) {
+			Rune r = (Rune)c.data.item;
+			return r.getColor() == this.getColor() || r.getShape() == this.getShape();
+		} else {
+			assert(false); // WHADAFUK ?
+			return false;
+		}
 	}
 	
 }

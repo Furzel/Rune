@@ -18,13 +18,17 @@ public class Rock implements Item {
 	}
 
 	@Override
-	public boolean canBePlacedOnCell(Cell c) {
+	public boolean canBePlacedOnCell(Cell c, Grid g) {
 		assert(c != null);
 		if(c.data.isEmpty()) {
 			return true;
 		} else {
 			return false;
 		}
+	}
+	
+	public boolean canBePlacedOnCell(Cell c) {
+		return this.canBePlacedOnCell(c, null);
 	}
 
 	@Override

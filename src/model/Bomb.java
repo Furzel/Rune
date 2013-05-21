@@ -18,13 +18,17 @@ public class Bomb implements Item {
 	}
 
 	@Override
-	public boolean canBePlacedOnCell(Cell c) {
+	public boolean canBePlacedOnCell(Cell c, Grid g) {
 		assert(c != null);
 		if (c.data.isEmpty()) {
 			return false;
 		} else {
 			return true;
 		}
+	}
+	
+	public boolean canBePlacedOnCell(Cell c) {
+		return this.canBePlacedOnCell(c, null);
 	}
 
 	@Override

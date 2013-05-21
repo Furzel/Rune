@@ -20,7 +20,7 @@ public class Game {
 		assert(_currentItem != null);
 		Cell c = gameGrid.getCell(x, y);
 		assert(c != null);
-		if (_currentItem.canBePlacedOnCell(c)) {
+		if (_currentItem.canBePlacedOnCell(c, gameGrid)) {
 			_currentItem.putOnCell(c);
 			return true;
 		}
