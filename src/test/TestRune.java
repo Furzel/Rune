@@ -1,6 +1,8 @@
 package test;
 
 import model.Cell;
+import model.Grid;
+import model.Rock;
 import model.Rune;
 
 public class TestRune extends Test {
@@ -37,6 +39,17 @@ public class TestRune extends Test {
 	}
 	
 	public void testCanBePlacedOnCell() {
+		Rune rune1 = new Rune(Rune.Color.BLUE, Rune.Shape.SHAPE1);
+		Grid g = new Grid();
+		// Can't be placed next to nothing
+		assert(rune1.canBePlacedOnCell(g.getCell(1,1)));
+		// Can't be place over something
+		// Can be placed next to a rock 
+		Rock rock1 = new Rock();
+		rock1.putOnCell(g.getCell(5,5));
+		assert(!rune1.canBePlacedOnCell(g.getCell(5,5)));
+		assert(rune1.canBePlacedOnCell(g.getCell(5, 4)));
+		rune1.putOnCell(g.getCell(1,1));
 		
 	}
 }
