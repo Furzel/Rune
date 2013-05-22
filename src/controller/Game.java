@@ -33,7 +33,7 @@ public class Game {
 	}
 	
 	public void discardCurrentItem() {
-		
+		_discardPool.addToDiscardPool(_currentItem);
 	}
 	
 }

@@ -114,4 +114,5 @@ public class Grid {
 		cellList.addAll(getCellInLine(c, pointBackward));
 		return cellList;
 	}
+	
 }
